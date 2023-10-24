@@ -1,0 +1,16 @@
+คำสั่ง SERVER postgres 
+COMMAND LINE
+==> pg_ctl -D "C:\Program Files\PostgreSQL\10\data" start
+==> pg_ctl -D "C:\Program Files\PostgreSQL\10\data" stop
+==> pg_ctl -D "C:\Program Files\PostgreSQL\10\data" restart
+เปิดโหมด postgres
+==> psql -U [username] [database]
+
+
+show table in postgres
+==> \dt
+show database in postgres
+==> \l
+show detile in table
+==> \d {name_table}
+

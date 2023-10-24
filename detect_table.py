@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import pytesseract as ps
+import connect
 
 class read_img:
     __kernel_size=5
@@ -160,6 +161,9 @@ class detect_table:
               self.thresh_val, self.thresh_img = cv2.threshold(self.box_resized_blur, self.ts[1], 255, cv2.THRESH_BINARY)
             self.text = ps.image_to_string(self.thresh_img)
             print(self.text)
+            
+            self.text = self.text.replace('\n', ' ')
+            
             if all(word in self.text.split() for word in self.ref_col):
               self.status = 1
             if self.status == 1:
@@ -173,6 +177,7 @@ class detect_table:
 if __name__ == "__main__":
     dt = detect_table('test2.jpg')
     text2D, t_name = dt.get_val()
-    print('All Cell : ', text2D)
+    # connect.insert(text2D)
+    connect.get()
+    # print(text2D)
     print('Table name : ', t_name)
-    
